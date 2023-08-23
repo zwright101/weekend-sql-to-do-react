@@ -3,7 +3,7 @@
 -- Table Structure
 CREATE TABLE "todo" (
 	"id"  SERIAL PRIMARY KEY,
-	"task" VARCHAR (2048),
+	"task" VARCHAR (200),
 	"complete" BOOLEAN DEFAULT 'false'
 
 );
