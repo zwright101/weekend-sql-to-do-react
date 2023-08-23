@@ -4,5 +4,4 @@
 [X] Add insert statements into the database.sql file
 [X] Create a GET route in the todo.router.js file to return sample data
 [X] Add useEffect and Axios GET to the App.jsx
-[] Update to do list and to do list form
-[] Display items on the page with .map 
+[X] Update to do list and to do list form

@@ -1,8 +1,13 @@
 import axios from 'axios';
+import './ToDoList.css';
 
 function ToDoListItem({item, fetchToDoList}) {
-    const finishedTask = (event) => {
-        axios.put(`/todo/${item.id}`).then((response) => {
+    const finishedTask = () => {
+        const updatedTask = {
+            complete: true,
+        };
+
+        axios.put(`/todo/${item.id}` , updatedTask).then((response) => {
             console.log(response);
             fetchToDoList();
         })
@@ -11,7 +16,7 @@ function ToDoListItem({item, fetchToDoList}) {
         })
     }
 
-    const deleteTask = (event) => {
+    const deleteTask = () => {
         axios.delete(`/todo/${item.id}`).then((response) => {
             fetchToDoList();
         })
@@ -20,15 +25,25 @@ function ToDoListItem({item, fetchToDoList}) {
         })
     }
 
+    const crossedOut = () => {
+        if(item.complete === true) {
+            return 'line-through';
+        }else {
+            return 'none';
+        }
+    }
+
     return (
         <>
-        <li>
-            {item.task}
+        <div key={item.id} className="item-container">
+        <li style={{ textDecoration: crossedOut() }}>
+            <p>{item.task}</p>
             <br />
-            <button onClick={(event) => finishedTask()}>Complete</button>
+            <button onClick={() => finishedTask(item.id)}>Complete</button>
             <br />
-            <button onClick={(event) => deleteTask()}>Delete</button>
+            <button onClick={() => deleteTask(item.id)}>Delete</button>
         </li>
+        </div>
         </>
     )
 }

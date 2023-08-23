@@ -35,9 +35,9 @@ router.post('/' , (req, res) => {
 })
 
 // PUT
-router.put('/finished/:id' , (req, res) => {
-    let {id} = req.params.id;
-    let taskToDoEdit = req.params.body;
+router.put('/:id' , (req, res) => {
+    let id = req.params.id;
+    // let taskToDoEdit = req.params.body;
     const sqlText = `UPDATE "todo" SET "complete" = 'true' WHERE "id" = $1;`;
     pool
     .query(sqlText, [id])
