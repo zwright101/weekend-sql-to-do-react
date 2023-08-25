@@ -4,11 +4,11 @@
   max-width: 600px;
   margin: 0 auto;
   background-color: #49b9ff;
-  color: #ffffff;
+  color: #000000;
 }
 
 .App li {
-background-color: #777777;
+background-color: #b1b1b1;
 margin-bottom: 10px;
 padding: 20px;
 display: flex;
@@ -36,3 +36,4 @@ color: black;
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+

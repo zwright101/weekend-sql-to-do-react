@@ -23,15 +23,14 @@ function ToDoListForm ({toDoListItems, setToDoListItems, fetchToDoList}) {
         <div className ="toDoForm">
             <form onSubmit={submitForm}>
             <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="New Task" variant="outlined" value={toDoListItems} onChange={(event) => setToDoListItems(event.target.value)}/>
-    </Box>
+                component="form"
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off">
+                <TextField id="outlined-basic" label="Add New Task" variant="outlined" value={toDoListItems} onChange={(event) => setToDoListItems(event.target.value)}/>
+            </Box>
                 {/* Task: <input type="text" value={toDoListItems} onChange={(event) => setToDoListItems(event.target.value)} /> */}
                 <input type="submit" value="Submit" />
             </form>
