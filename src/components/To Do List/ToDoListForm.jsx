@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+// Material UI
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 function ToDoListForm ({toDoListItems, setToDoListItems, fetchToDoList}) {
     const submitForm = (event) => {
         event.preventDefault();
@@ -18,7 +22,17 @@ function ToDoListForm ({toDoListItems, setToDoListItems, fetchToDoList}) {
     return (
         <div className ="toDoForm">
             <form onSubmit={submitForm}>
-                Task: <input type="text" value={toDoListItems} onChange={(event) => setToDoListItems(event.target.value)} />
+            <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-basic" label="New Task" variant="outlined" value={toDoListItems} onChange={(event) => setToDoListItems(event.target.value)}/>
+    </Box>
+                {/* Task: <input type="text" value={toDoListItems} onChange={(event) => setToDoListItems(event.target.value)} /> */}
                 <input type="submit" value="Submit" />
             </form>
         </div>
